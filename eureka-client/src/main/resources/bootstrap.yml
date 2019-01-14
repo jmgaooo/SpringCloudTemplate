@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: eureka-client
+  cloud:
+    config:
+      profile: default
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+#spring.cloud.config.discovery.enabled启用时defaultZone必须配置在本地
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/

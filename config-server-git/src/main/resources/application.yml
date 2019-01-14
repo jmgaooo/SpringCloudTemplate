@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/gaojunming/config-repo1.git
+server:
+  port: 1201
+#注册为eureka服务来实现高可用
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+#对称性密钥
+encrypt:
+  key: dyou
