@@ -17,11 +17,12 @@ public class DcController {
     DiscoveryClient discoveryClient;
 
     @GetMapping("/dc")
-    public String dc() {
+    public String dc() throws InterruptedException {
         String services = "Services: " + discoveryClient.getServices();
         System.out.println(services);
         System.out.println(password);
         System.out.println(myName);
+        Thread.sleep(5000L);//用于Hystrix服务降级测试
         return services;
     }
 
