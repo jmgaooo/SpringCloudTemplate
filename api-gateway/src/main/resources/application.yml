@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 1101
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+zuul:
+  #跳过所有自动添加的服务
+  ignoredServices: '*'
+  routes:
+    eureka-consumer: /eureka-consumer/**
