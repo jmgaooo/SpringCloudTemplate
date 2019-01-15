@@ -1,0 +1,11 @@
+server:
+  port: 2001
+info:
+  profile: default
+#yml中加密值必须括在引号内
+password: '{cipher}cf62db7eedc881eafe3d9252015c68023218ab9c6a92a98164238bd9367deb66'
+myName: gao
+management:
+  security:
+    #actuator是否需要安全保证,开启时访问actuator接口需要安全验证
+    enabled: false

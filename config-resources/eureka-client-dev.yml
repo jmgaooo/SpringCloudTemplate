@@ -1,0 +1,6 @@
+server:
+  port: 2001
+info:
+  profile: dev
+#yml中加密值必须括在引号内
+password: '{cipher}cf62db7eedc881eafe3d9252015c68023218ab9c6a92a98164238bd9367deb66'
