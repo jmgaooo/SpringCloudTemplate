@@ -15,6 +15,7 @@ public class DcController {
     //开启服务容错保护：服务降级、依赖隔离、断路器
     @HystrixCommand(fallbackMethod = "fallback")//注意：fallbackMethod指定的函数参数要与声明的函数参数保持一致
     public String dc() {
+        System.out.println("dc..");
         return dcClient.consumer();
     }
 
