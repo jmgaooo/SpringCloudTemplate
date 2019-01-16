@@ -1,4 +1,2 @@
-server:
-  port: 2101
 info:
   profile: default
