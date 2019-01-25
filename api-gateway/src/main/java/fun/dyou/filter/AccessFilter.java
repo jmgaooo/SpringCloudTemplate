@@ -38,7 +38,13 @@ public class AccessFilter extends ZuulFilter {
         HttpServletRequest request = ctx.getRequest();
 
         log.info("send {} request to {}", request.getMethod(), request.getRequestURL().toString());
-
+        //排除swagger接口
+        if(request.getRequestURI().startsWith("/eureka-consumer/v2")){
+            return null;
+        }
+        if(request.getRequestURI().startsWith("/eureka-client/v2")){
+            return null;
+        }
         Object accessToken = request.getParameter("accessToken");
         if(accessToken == null) {
             log.warn("access token is empty");

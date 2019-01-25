@@ -14,3 +14,4 @@ zuul:
   ignoredServices: '*'
   routes:
     eureka-consumer: /eureka-consumer/**
+    eureka-client: /eureka-client/**
