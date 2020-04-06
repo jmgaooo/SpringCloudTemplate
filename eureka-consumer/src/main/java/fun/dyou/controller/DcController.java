@@ -16,7 +16,7 @@ public class DcController {
     @HystrixCommand(fallbackMethod = "fallback")//注意：fallbackMethod指定的函数参数要与声明的函数参数保持一致
     public String dc() {
         System.out.println("dc..");
-        return dcClient.consumer();
+        return dcClient.consumer("test");
     }
 
     public String fallback(){

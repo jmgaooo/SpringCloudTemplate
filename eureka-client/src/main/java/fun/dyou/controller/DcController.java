@@ -6,6 +6,11 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
+import javax.servlet.http.HttpServletRequest;
+
 @RefreshScope//访问refresh接口刷新配置时被@RefreshScope标记的类将得到特殊处理(刷新关联的配置之类)
 @RestController
 public class DcController {
@@ -18,6 +23,8 @@ public class DcController {
 
     @GetMapping("/dc")
     public String dc() throws InterruptedException {
+        //打印消费者传来的token
+        System.out.println((((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest()).getHeader("token"));
         String services = "Services: " + discoveryClient.getServices();
         System.out.println(services);
         System.out.println(password);
